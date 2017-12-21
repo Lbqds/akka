@@ -35,7 +35,7 @@ lazy val aggregatedProjects: Seq[ProjectReference] = Seq(
   protobuf,
   remote, remoteTests,
   slf4j,
-  stream, streamTestkit, streamTests, streamTestsTck,
+  stream, streamTestkit, streamTests, streamTestsTck, restartStreamTests,
   testkit,
   typed, typedTests, typedTestkit
 )
@@ -336,6 +336,11 @@ lazy val streamTestkit = akkaModule("akka-stream-testkit")
 lazy val streamTests = akkaModule("akka-stream-tests")
   .dependsOn(streamTestkit % "test->test", stream)
   .settings(Dependencies.streamTests)
+  .enablePlugins(NoPublish)
+  .disablePlugins(MimaPlugin, WhiteSourcePlugin)
+
+lazy val restartStreamTests = akkaModule("akka-restart-stream-tests")
+  .dependsOn(actor, stream)
   .enablePlugins(NoPublish)
   .disablePlugins(MimaPlugin, WhiteSourcePlugin)
 
