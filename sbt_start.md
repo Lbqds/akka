@@ -1,0 +1,1 @@
+-Dakka.scaladoc.diagrams=false

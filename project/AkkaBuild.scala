@@ -19,7 +19,7 @@ object AkkaBuild {
   val parallelExecutionByDefault = false // TODO: enable this once we're sure it does not break things
 
   lazy val buildSettings = Dependencies.Versions ++ Seq(
-    organization := "com.typesafe.akka",
+    organization := "com.myself.akka",
     // use the same value as in the build scope, so it can be overriden by stampVersion
     version := (version in ThisBuild).value)
 
